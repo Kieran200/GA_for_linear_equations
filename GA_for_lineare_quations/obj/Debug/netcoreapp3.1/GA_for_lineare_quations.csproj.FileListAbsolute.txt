@@ -1,0 +1,14 @@
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\bin\Debug\netcoreapp3.1\GA_for_lineare_quations.exe
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\bin\Debug\netcoreapp3.1\GA_for_lineare_quations.deps.json
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\bin\Debug\netcoreapp3.1\GA_for_lineare_quations.runtimeconfig.json
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\bin\Debug\netcoreapp3.1\GA_for_lineare_quations.runtimeconfig.dev.json
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\bin\Debug\netcoreapp3.1\GA_for_lineare_quations.dll
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\bin\Debug\netcoreapp3.1\GA_for_lineare_quations.pdb
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\obj\Debug\netcoreapp3.1\GA_for_lineare_quations.csproj.AssemblyReference.cache
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\obj\Debug\netcoreapp3.1\GA_for_lineare_quations.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\obj\Debug\netcoreapp3.1\GA_for_lineare_quations.AssemblyInfoInputs.cache
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\obj\Debug\netcoreapp3.1\GA_for_lineare_quations.AssemblyInfo.cs
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\obj\Debug\netcoreapp3.1\GA_for_lineare_quations.csproj.CoreCompileInputs.cache
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\obj\Debug\netcoreapp3.1\GA_for_lineare_quations.dll
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\obj\Debug\netcoreapp3.1\GA_for_lineare_quations.pdb
+C:\Users\Владелец\source\repos\GA_for_lineare_quations\GA_for_lineare_quations\obj\Debug\netcoreapp3.1\GA_for_lineare_quations.genruntimeconfig.cache
