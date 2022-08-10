@@ -8,7 +8,7 @@ namespace GA_for_lineare_quations
     {
         public int x;
         public int survival_rate;
-        public float survival_percent;
+        public double survival_percent;
         public Population(int number, int rate)
         {
             x = number;

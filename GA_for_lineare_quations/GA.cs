@@ -23,22 +23,21 @@ namespace GA_for_lineare_quations
             }
 
             bool stop = true;
+            double sum_of_reciprocals = 0;
             while (stop)
             {
-                float sum_of_reciprocals = 0;
-
                 //рассчитываем коэффициенты выживаемости
                 foreach (Population subject in generationList)
                 {
                     subject.survival_rate = Math.Abs((a * subject.x + b) - c);
                     if (subject.survival_rate != 0)
-                        sum_of_reciprocals = sum_of_reciprocals + (1 / subject.survival_rate);
+                        sum_of_reciprocals = sum_of_reciprocals + (1 / Convert.ToDouble(subject.survival_rate));
                     else break;
                 }
                 foreach (Population subject in generationList)
                 {
                     if (subject.survival_rate != 0)
-                        subject.survival_percent = 100 * ((1 / subject.survival_rate) / sum_of_reciprocals);
+                        subject.survival_percent = 100.0 * ((1 / Convert.ToDouble(subject.survival_rate)) / sum_of_reciprocals);
                     else break;
                 }
 
@@ -53,7 +52,7 @@ namespace GA_for_lineare_quations
                 }
 
                 //ранжирование списка популяции
-                float number = 0; //локальная переменная 
+                double number = 0; //локальная переменная 
                 for (int i = 0; i < generationList.Count - 1; i++)
                 {
                     if (generationList[i].survival_percent > generationList[i + 1].survival_percent)
@@ -84,6 +83,7 @@ namespace GA_for_lineare_quations
                 {
                     generationList[rnd.Next(0, 5)].x = rnd.Next(0, c);
                 }
+                sum_of_reciprocals = 0;
             }
         }
     }
