@@ -30,9 +30,9 @@ namespace GA_for_lineare_quations
                 //рассчитываем коэффициенты выживаемости
                 foreach (Population subject in generationList)
                 {
-                    subject.survival_rate = Math.Abs((3 * subject.x + 2) - c);
+                    subject.survival_rate = Math.Abs((a * subject.x + b) - c);
                     if (subject.survival_rate != 0)
-                        sum_of_reciprocals += 1 / subject.survival_rate;
+                        sum_of_reciprocals = sum_of_reciprocals + (1 / subject.survival_rate);
                     else break;
                 }
                 foreach (Population subject in generationList)
