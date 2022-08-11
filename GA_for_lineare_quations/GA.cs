@@ -52,7 +52,7 @@ namespace GA_for_lineare_quations
                 }
 
                 //ранжирование списка популяции
-                double number = 0; //локальная переменная 
+                double number; //локальная переменная 
                 for (int i = 0; i < generationList.Count - 1; i++)
                 {
                     if (generationList[i].survival_percent > generationList[i + 1].survival_percent)
