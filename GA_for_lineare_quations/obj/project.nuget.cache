@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L5x1b1JYUYo+SXBBdQ9fPth+5F5h2SpmtNOAkPoQgSbkhAY+3NUhMqshlHLdh17eY2R4wsD+ekgrEvHcH+hV3g==",
+  "dgSpecHash": "taEwMZ1FfvmjOFvh3yRi1BFALdx2Lb4W5TAOGLSX5QosNg9lGZ7NpMr7y3TBjLMYFdyFQRJ9bNVDMcbJyGmCpQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Владелец\\source\\repos\\GA_for_lineare_quations\\GA_for_lineare_quations\\GA_for_lineare_quations.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Владелец\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

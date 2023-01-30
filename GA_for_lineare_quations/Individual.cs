@@ -4,14 +4,14 @@ using System.Text;
 
 namespace GA_for_lineare_quations
 {
-    class Population
+    class Individual
     {
-        public int x;
-        public int survival_rate;
+        public List<double> chromosomes;
+        public double survival_rate;
         public double survival_percent;
-        public Population(int number, int rate)
+        public Individual(List<double> chrom, double rate)
         {
-            x = number;
+            chromosomes = chrom;
             survival_rate = rate;
         }
     }

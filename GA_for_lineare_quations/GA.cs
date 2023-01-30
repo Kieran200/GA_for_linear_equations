@@ -6,85 +6,105 @@ namespace GA_for_lineare_quations
 {
     class GA
     {
-        public void Genetic_Algorithm(int a, int b, int c)
+        public void Genetic_Algorithm(List<double> variablesList, double survival_rate)
         {
-            
-            int survival_rate = c;
-
+            int gen_scale = 40;
             Random rnd = new Random();
-            List<Population> generationList = new List<Population>();
+            List<Individual> gensList = new List<Individual>();  //переменные нескольких уравнений
+            List<List<Individual>> parentsList = new List<List<Individual>>();
+            double precision = 0.1;
 
-            List<List<Population>> parentsList = new List<List<Population>>(5);
-
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < gen_scale; i++)
             {
-                Population subject = new Population(rnd.Next(1, c), survival_rate);
-                generationList.Add(subject);
+                List<double> first_chrom_List = new List<double>();    //переменные для 1го уравнения
+                for (int j = 0; j < variablesList.Count; j++)
+                {
+                    first_chrom_List.Add(rnd.Next(1, Convert.ToInt32(survival_rate)));
+                }
+                Individual individ = new Individual(first_chrom_List, survival_rate);
+                gensList.Add(individ);
             }
+
+            Distance_Calc calc = new Distance_Calc();
+
+
 
             bool stop = true;
             double sum_of_reciprocals = 0;
+
             while (stop)
             {
                 //рассчитываем коэффициенты выживаемости
-                foreach (Population subject in generationList)
+                foreach (Individual individ in gensList)
                 {
-                    subject.survival_rate = Math.Abs((a * subject.x + b) - c);
-                    if (subject.survival_rate != 0)
-                        sum_of_reciprocals = sum_of_reciprocals + (1 / Convert.ToDouble(subject.survival_rate));
-                    else break;
-                }
-                foreach (Population subject in generationList)
-                {
-                    if (subject.survival_rate != 0)
-                        subject.survival_percent = 100.0 * ((1 / Convert.ToDouble(subject.survival_rate)) / sum_of_reciprocals);
+                    individ.survival_rate = calc.Distance(variablesList, individ.chromosomes, survival_rate);
+                    if (individ.survival_rate > precision)
+                        sum_of_reciprocals = sum_of_reciprocals + (1 / Convert.ToDouble(individ.survival_rate));
                     else break;
                 }
 
-                foreach (Population subject in generationList)
+                foreach (Individual individ in gensList)
                 {
-                    if (subject.survival_rate == 0)
+                    if (individ.survival_rate > precision)
+                        individ.survival_percent = 100.0 * ((1 / Convert.ToDouble(individ.survival_rate)) / sum_of_reciprocals);
+                    else break;
+                }
+                foreach (Individual individ in gensList)
+                {
+                    if (individ.survival_rate < precision)
                     {
-                        Console.WriteLine("x = " + subject.x);
+                        Console.WriteLine("Коэффициенты равны: ");
+                        for (int i = 0; i < individ.chromosomes.Count; i++)
+                        {
+                            Console.WriteLine(individ.chromosomes[i]);
+                        }
                         stop = false;
                     }
 
                 }
 
                 //ранжирование списка популяции
-                Population number; //локальная переменная 
-                for (int i = 0; i < generationList.Count - 1; i++)
+                Individual number; //локальная переменная 
+
+                for (int i = 0; i < gensList.Count - 1; i++)
                 {
-                    if (generationList[i].survival_percent > generationList[i + 1].survival_percent)
+                    if (gensList[i].survival_percent > gensList[i + 1].survival_percent)
                     {
-                        number = generationList[i];
-                        generationList[i] = generationList[i + 1];
-                        generationList[i + 1] = number;
+                        number = gensList[i];
+                        gensList[i] = gensList[i + 1];
+                        gensList[i + 1] = number;
                         i = -1;
                     }
                 }
                 //список родителей
                 parentsList.Clear();
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < gen_scale; i++)
                 {
-                    parentsList.Add(new List<Population> { generationList[rnd.Next(0, 2)], generationList[rnd.Next(2, 5)] });
+                    parentsList.Add(new List<Individual> { gensList[rnd.Next(0, Convert.ToInt32(gen_scale/4))], gensList[rnd.Next(0, gen_scale)] });
                 }
 
                 //новое поколение
-                generationList.Clear();
-                foreach (List<Population> parents in parentsList)
+                gensList.Clear();
+                foreach (List<Individual> parents in parentsList)
                 {
-                    Population subject = new Population(parents[rnd.Next(0, 2)].x, survival_rate);
-                    generationList.Add(subject);
+                    List<double> chroms = new List<double>();
+                    for (int i = 0; i < parents[0].chromosomes.Count; i++)
+                    {
+                        chroms.Add(parents[rnd.Next(0, 2)].chromosomes[i]);
+                    }
+                    Individual individ = new Individual(chroms, survival_rate);
+                    gensList.Add(individ);
                 }
                 //мутация        
-                int mutation_coef = rnd.Next(0, 11);
+                int mutation_coef = rnd.Next(0, 6);
                 if (mutation_coef == 5)
                 {
-                    generationList[rnd.Next(0, 5)].x = rnd.Next(0, c);
+                    gensList[rnd.Next(0, 10)].chromosomes[rnd.Next(0, variablesList.Count)] = rnd.Next(0, Convert.ToInt32(survival_rate));
                 }
                 sum_of_reciprocals = 0;
             }
+
         }
     }
 }
+
