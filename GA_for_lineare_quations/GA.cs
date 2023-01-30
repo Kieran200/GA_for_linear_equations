@@ -59,6 +59,7 @@ namespace GA_for_lineare_quations
                             Console.WriteLine(individ.chromosomes[i]);
                         }
                         stop = false;
+                        break;
                     }
 
                 }
@@ -68,7 +69,7 @@ namespace GA_for_lineare_quations
 
                 for (int i = 0; i < gensList.Count - 1; i++)
                 {
-                    if (gensList[i].survival_percent > gensList[i + 1].survival_percent)
+                    if (gensList[i].survival_percent < gensList[i + 1].survival_percent)
                     {
                         number = gensList[i];
                         gensList[i] = gensList[i + 1];
